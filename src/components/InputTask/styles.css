@@ -1,0 +1,43 @@
+.input-task {
+    display: flex;
+    width: 70%;
+    height: 40px;
+}
+
+.input-task input {
+    width: 80%;
+    height: auto;
+    padding: 20px;
+}
+
+.input-task button {
+    width: 20%;
+    height: auto;
+    transition: all 200ms ease-out;
+}
+
+.input-task input, 
+.input-task button {
+    border: none;
+    border-radius: 2px;
+    outline-color: var(--color-dark-gray);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: var(--color-white);
+}
+
+.input-task input {
+    background-color: var(--color-light-gray);
+}
+
+.input-task input::placeholder {
+    color: var(--color-floral-white);
+}
+
+.input-task button {
+    background-color: var(--color-gray);
+}
+
+.input-task button:hover {
+    background-color: var(--color-dark-gray);
+}
