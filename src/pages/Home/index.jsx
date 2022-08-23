@@ -6,7 +6,7 @@ import TaskList from '../../components/TaskList';
 import './styles.css';
 
 function Home() {
-  const [inputContent, setInputContent] = useState();
+  const [inputContent, setInputContent] = useState('');
   const [tasksList, setTasksList] = useState([]);
 
   function handleChangeInput(value){
@@ -15,18 +15,15 @@ function Home() {
 
   function handleAddTask(){
       const newTask = inputContent;
-      if(newTask !== ''){
+      if(newTask.trim().length !== 0){
           setTasksList([...tasksList, newTask]);
       }
-
       setInputContent('');
-      document.querySelector('.input-task input').value = '';
   }
 
   function handleDeleteTask(indexTask){
-    const oldList = [...tasksList];
-    const newList = oldList.filter((task, index) => index != indexTask);
-    
+    const newList = [...tasksList];
+    newList.splice(indexTask, 1);
     setTasksList(newList);
   }
 
@@ -40,6 +37,7 @@ function Home() {
       <Header />
       <InputTask  onChange={handleChangeInput}
                   onClick={handleAddTask}
+                  value={inputContent}
        />
       <TaskList tasksList={tasksList}
                 onClick={handleDeleteTask}
